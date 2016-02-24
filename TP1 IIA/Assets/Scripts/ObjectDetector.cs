@@ -8,7 +8,7 @@ public class ObjectDetector : MonoBehaviour
     public float angle;
     public float distance;
     public bool output;
-   
+
     void Start()
     {
         angle = 80;
@@ -29,7 +29,6 @@ public class ObjectDetector : MonoBehaviour
         return output;
     }
 
-    
     public void GetSensorValue()
     {
         ArrayList obstaclesOnSight = new ArrayList();
@@ -62,7 +61,7 @@ public class ObjectDetector : MonoBehaviour
         {
             output = true;
         }
-        
+
     }
 
 }
