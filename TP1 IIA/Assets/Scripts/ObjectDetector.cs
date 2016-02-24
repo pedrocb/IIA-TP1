@@ -22,11 +22,11 @@ public class ObjectDetector : MonoBehaviour
         GameObject[] cubes = GetVisibleObstacles();
         numObjects = cubes.Length;
 
-        Debug.Log(cubes.Length);
+        //Debug.Log(cubes.Length);
 
         foreach (GameObject cube in cubes)
         {
-            
+
             //output += 1f / Mathf.Pow((transform.position - cube.transform.position).magnitude / r + 1, 2);
         }
 
@@ -39,7 +39,7 @@ public class ObjectDetector : MonoBehaviour
         return output;
     }
 
-    
+
     GameObject[] GetVisibleObstacles()
     {
         ArrayList visibleLights = new ArrayList();
