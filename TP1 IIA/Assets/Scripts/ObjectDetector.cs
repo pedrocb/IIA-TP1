@@ -23,8 +23,8 @@ public class ObjectDetector : MonoBehaviour
 
         foreach (GameObject cube in cubes)
         {
-            float r = cube.GetComponent<Cube>().range;
-            output += 1f / Mathf.Pow((transform.position - cube.transform.position).magnitude / r + 1, 2);
+            //float r = cube.GetComponent<Cube>().range;
+            //output += 1f / Mathf.Pow((transform.position - cube.transform.position).magnitude / r + 1, 2);
         }
 
     }
