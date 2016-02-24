@@ -8,10 +8,11 @@ public class ObjectDetector : MonoBehaviour
     public float angle;
     public float distance;
     public int numObjects;
-    public Vector2 output;
+    public Vector3 output;
     void Start()
     {
         angle = 60;
+        distance = 20;
         numObjects = 0;
     }
 
@@ -21,9 +22,11 @@ public class ObjectDetector : MonoBehaviour
         GameObject[] cubes = GetVisibleObstacles();
         numObjects = cubes.Length;
 
+        Debug.Log(cubes.Length);
+
         foreach (GameObject cube in cubes)
         {
-            //float r = cube.GetComponent<Cube>().range;
+            
             //output += 1f / Mathf.Pow((transform.position - cube.transform.position).magnitude / r + 1, 2);
         }
 
@@ -36,13 +39,8 @@ public class ObjectDetector : MonoBehaviour
         return output;
     }
 
-    // Returns all "Light" tagged objects. The sensor angle is not taken into account.
+    
     GameObject[] GetVisibleObstacles()
-    {
-        return GameObject.FindGameObjectsWithTag("Cube");
-    }
-
-    GameObject[] GetVisibleLights()
     {
         ArrayList visibleLights = new ArrayList();
         float halfAngle = angle / 2.0f;
