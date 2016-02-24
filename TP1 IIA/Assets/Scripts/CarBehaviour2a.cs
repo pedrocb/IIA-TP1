@@ -13,13 +13,6 @@ public class CarBehaviour2a : CarBehaviour {
 		m_LeftWheelSpeed = leftSensor * MaxSpeed;
 		m_RightWheelSpeed = rightSensor * MaxSpeed;
 
-		//Check unit collisions
 	}
-	void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag ("Cube"))
-        {
-            other.gameObject.SetActive (false);
-        }
-    }
+
 }
