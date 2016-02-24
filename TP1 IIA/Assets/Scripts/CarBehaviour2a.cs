@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CarBehaviour2a : CarBehaviour {
-	
+
 	void Update()
 	{
 		//Read sensor values
@@ -12,5 +12,14 @@ public class CarBehaviour2a : CarBehaviour {
 		//Calculate target motor values
 		m_LeftWheelSpeed = leftSensor * MaxSpeed;
 		m_RightWheelSpeed = rightSensor * MaxSpeed;
+
+		//Check unit collisions
+	/*void OnTriggerEnter(Collider other)
+	 {
+			 if (other.gameObject.CompareTag ("Cube"))
+			 {
+
+			 }
+	 }*/
 	}
 }
