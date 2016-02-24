@@ -12,7 +12,7 @@ public class ObjectDetector : MonoBehaviour
     void Start()
     {
         angle = 80;
-        distance = 20;
+        distance = 5;
         output = 0;
     }
 
@@ -39,15 +39,18 @@ public class ObjectDetector : MonoBehaviour
 
         foreach (GameObject cube in cubes)
         {
-            Vector3 toVector = (cube.transform.position - transform.position);
-            Vector3 forward = transform.forward;
-            toVector.y = 0;
-            forward.y = 0;
-            float angleToTarget = Vector3.Angle(forward, toVector);
-
-            if (angleToTarget <= halfAngle)
+            if (Vector3.Distance(transform.position, cube.transform.position) <= distance)
             {
-                obstaclesOnSight.Add(cube);
+                Vector3 toVector = (cube.transform.position - transform.position);
+                Vector3 forward = transform.forward;
+                toVector.y = 0;
+                forward.y = 0;
+                float angleToTarget = Vector3.Angle(forward, toVector);
+
+                if (angleToTarget <= halfAngle)
+                {
+                    obstaclesOnSight.Add(cube);
+                }
             }
         }
 
