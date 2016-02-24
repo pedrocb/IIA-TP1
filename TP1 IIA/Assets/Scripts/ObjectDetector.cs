@@ -7,42 +7,32 @@ public class ObjectDetector : MonoBehaviour
     // Use this for initialization
     public float angle;
     public float distance;
-    public int numObjects;
-    public Vector3 output;
+    public int output;
+   
     void Start()
     {
-        angle = 60;
+        angle = 80;
         distance = 20;
-        numObjects = 0;
+        output = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject[] cubes = GetVisibleObstacles();
-        numObjects = cubes.Length;
-
-        Debug.Log(cubes.Length);
-
-        foreach (GameObject cube in cubes)
-        {
-            
-            //output += 1f / Mathf.Pow((transform.position - cube.transform.position).magnitude / r + 1, 2);
-        }
-
+        GetSensorValue();
     }
 
 
     // Get Sensor output value
-    public Vector2 getObstaclePosition()
+    public int getOutput()
     {
         return output;
     }
 
     
-    GameObject[] GetVisibleObstacles()
+    public void GetSensorValue()
     {
-        ArrayList visibleLights = new ArrayList();
+        ArrayList obstaclesOnSight = new ArrayList();
         float halfAngle = angle / 2.0f;
 
         GameObject[] cubes = GameObject.FindGameObjectsWithTag("Cube");
@@ -57,11 +47,19 @@ public class ObjectDetector : MonoBehaviour
 
             if (angleToTarget <= halfAngle)
             {
-                visibleLights.Add(cube);
+                obstaclesOnSight.Add(cube);
             }
         }
 
-        return (GameObject[])visibleLights.ToArray(typeof(GameObject));
+        if(obstaclesOnSight.Count==0)
+        {
+            output = 0;
+        }
+        else
+        {
+            output = 1;
+        }
+        
     }
 
 }
