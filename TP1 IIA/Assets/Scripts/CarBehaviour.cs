@@ -34,4 +34,11 @@ public class CarBehaviour : MonoBehaviour {
 		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
 
 	}
+	void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag ("Cube"))
+        {
+            other.gameObject.SetActive (false);
+        }
+    }
 }
