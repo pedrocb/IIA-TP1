@@ -7,13 +7,13 @@ public class ObjectDetector : MonoBehaviour
     // Use this for initialization
     public float angle;
     public float distance;
-    public int output;
+    public bool output;
    
     void Start()
     {
         angle = 80;
-        distance = 5;
-        output = 0;
+        distance = 2;
+        output = false;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class ObjectDetector : MonoBehaviour
 
 
     // Get Sensor output value
-    public int getOutput()
+    public bool getOutput()
     {
         return output;
     }
@@ -56,11 +56,11 @@ public class ObjectDetector : MonoBehaviour
 
         if(obstaclesOnSight.Count==0)
         {
-            output = 0;
+            output = false;
         }
         else
         {
-            output = 1;
+            output = true;
         }
         
     }
