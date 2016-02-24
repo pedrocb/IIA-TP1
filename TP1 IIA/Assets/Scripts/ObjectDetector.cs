@@ -11,8 +11,8 @@ public class ObjectDetector : MonoBehaviour
 
     void Start()
     {
-        angle = 80;
-        distance = 2;
+        angle = 60;
+        distance = 1;
         output = false;
     }
 
@@ -35,7 +35,7 @@ public class ObjectDetector : MonoBehaviour
         float halfAngle = angle / 2.0f;
 
         GameObject[] cubes = GameObject.FindGameObjectsWithTag("Cube");
-
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Walls");
         foreach (GameObject cube in cubes)
         {
             if (Vector3.Distance(transform.position, cube.transform.position) <= distance)
@@ -48,10 +48,34 @@ public class ObjectDetector : MonoBehaviour
 
                 if (angleToTarget <= halfAngle)
                 {
+                    Debug.Log(transform.position);
+                    Debug.Log(cube.transform.position);
+                    //Debug.Log(GameObject.FindGameObjectWithTag("Cube").transform.position);
+                    Debug.Log("Viu obstáculo");
                     obstaclesOnSight.Add(cube);
                 }
             }
         }
+        /*foreach (GameObject wall in walls)
+        {
+            if (Vector3.Distance(transform.position, wall.transform.position) <= distance)
+            {
+
+                Vector3 toVector = (wall.transform.position - transform.position);
+                Vector3 forward = transform.forward;
+                toVector.y = 0;
+                forward.y = 0;
+                float angleToTarget = Vector3.Angle(forward, toVector);
+
+                if (angleToTarget <= halfAngle)
+                {
+                    Debug.Log(transform.position);
+                    Debug.Log(wall.transform.position);
+                    Debug.Log("Viu parede");
+                    obstaclesOnSight.Add(wall);
+                }
+            }
+        }*/
 
         if(obstaclesOnSight.Count==0)
         {

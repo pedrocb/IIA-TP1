@@ -20,7 +20,7 @@ public class LightDetectorScript : MonoBehaviour {
 
 		output = 0;
 		numObjects = lights.Length;
-	
+
 		foreach (GameObject light in lights) {
 			float r = light.GetComponent<Light> ().range;
 			output += 1f / Mathf.Pow((transform.position - light.transform.position).magnitude / r + 1, 2);
@@ -35,14 +35,14 @@ public class LightDetectorScript : MonoBehaviour {
 
 		return output;
 	}
-		
+
 	// Returns all "Light" tagged objects. The sensor angle is not taken into account.
 	GameObject[] GetAllLights()
 	{
 		return GameObject.FindGameObjectsWithTag ("Light");
 	}
 
-	// Returns all "Light" tagged objects that are within the view angle of the Sensor. Only considers the angle over 
+	// Returns all "Light" tagged objects that are within the view angle of the Sensor. Only considers the angle over
 	// the y axis. Does not consider objects blocking the view.
 	GameObject[] GetVisibleLights()
 	{

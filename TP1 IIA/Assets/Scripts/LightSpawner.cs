@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class LightSpawner : MonoBehaviour {
-	int maxNumberLights = 10;
-	private int remainingLights = 10;
+	int maxNumberLights = 30;
+	private int remainingLights = 30;
 	float timeLeft = 6.0f;
 	private List<float> lightsTimer = new List<float>();
 	private List<GameObject> newLight = new List<GameObject>();
@@ -14,8 +14,8 @@ public class LightSpawner : MonoBehaviour {
 		getLightsTimer();
 		int xRandom, zRandom;
 		for(int i = 0; i < maxNumberLights; i++){
-				xRandom = Random.Range(-15,15);
-				zRandom = Random.Range(-15,15);
+				xRandom = Random.Range(-24,24);
+				zRandom = Random.Range(-24,24);
 				GameObject auxLight = Instantiate(Resources.Load("Point light"),new Vector3(xRandom,1,zRandom), Quaternion.identity) as GameObject;
 				auxLight.transform.parent = this.gameObject.transform;
 				newLight.Add(auxLight);
@@ -33,7 +33,7 @@ public class LightSpawner : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 		for(int i = 0; i < maxNumberLights; i++){
 			lightsTimer[i] -= Time.deltaTime;
 			if ( lightsTimer[i] < 0 )
@@ -43,8 +43,6 @@ public class LightSpawner : MonoBehaviour {
 				remainingLights--;
 			}
 		}
-		/*if(remainingLights == 0){
-			Start();
-		}*/
-	}
+
+	}*/
 }

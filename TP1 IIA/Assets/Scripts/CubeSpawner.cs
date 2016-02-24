@@ -8,8 +8,8 @@ public class CubeSpawner : MonoBehaviour {
 		int maxCubeObjects = 10;
 		int xRandom, zRandom;
 		for(int i = 0; i < maxCubeObjects; i++){
-				xRandom = Random.Range(-15,15);
-				zRandom = Random.Range(-15,15);
+				xRandom = Random.Range(-24,24);
+				zRandom = Random.Range(-24,24);
 				GameObject newCube = Instantiate(Resources.Load("Cube"),new Vector3(xRandom,1,zRandom), Quaternion.identity) as GameObject;
 				newCube.transform.parent = this.gameObject.transform;
 		}
