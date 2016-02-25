@@ -15,9 +15,14 @@ public class CarBehaviour2a : CarBehaviour {
 	//Read sensor values
 	float leftSensor = LeftLD.getLinearOutput ();
 	float rightSensor = RightLD.getLinearOutput ();
-
-	//leftSensor = 0.5f;
-	//rightSensor = 0.5f;
+	
+	//leftSensor = 0.2f;
+	//rightSensor = 0.2f;
+	//Calculate target motor values
+	m_LeftWheelSpeed = leftSensor * MaxSpeed;
+	m_RightWheelSpeed = rightSensor * MaxSpeed;
+	
+	
 	//Calculate target motor values
 	
 	m_LeftWheelSpeed = rightSensor * MaxSpeed;
@@ -28,38 +33,73 @@ public class CarBehaviour2a : CarBehaviour {
         bool eastSensor = eastOD.getOutput();
         bool westSensor = westOD.getOutput();
 	
-        /*if(westSensor && !northSensor)
-        {
-            //ir para norte
-            m_LeftWheelSpeed = m_LeftWheelSpeed +20;
-            m_RightWheelSpeed = m_RightWheelSpeed + 20;
-
+        if(northSensor){
+            if(!eastSensor){
+                //m_RightWheelSpeed = m_RightWheelSpeed +20;
+                transform.root.transform.Rotate(0,10,0);
+            }
+            else if(!westSensor){
+                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                transform.root.transform.Rotate(0,-10,0);
+            }
+            else if(!southSensor){
+                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
+                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
+                transform.root.transform.Rotate(0,180,0);
+            }
         }
-        else if(southSensor && !westSensor)
-        {
-            //ir para oest
-            m_RightWheelSpeed = m_RightWheelSpeed + 20;
-        }
-        else if(eastSensor && !southSensor)
-        {
-            m_RightWheelSpeed = -m_RightWheelSpeed;
-            m_LeftWheelSpeed = -m_LeftWheelSpeed;
-        }
-        else if(northSensor && !eastSensor)
-        {
-            //ir para este
-            m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
-        }
-        else
-        {
-            m_LeftWheelSpeed = Mathf.Abs(m_LeftWheelSpeed);
-            m_RightWheelSpeed = Mathf.Abs(m_RightWheelSpeed);
-
-	    }*/
-	if(westSensor || eastSensor || northSensor || southSensor){
-	    transform.root.transform.Rotate(0,10,0);
-	}
 	
+        if(westSensor){
+            if(!northSensor){
+                transform.root.transform.Rotate(0,0,0);
+                //m_LeftWheelSpeed = m_LeftWheelSpeed;
+                //m_RightWheelSpeed = m_RightWheelSpeed;
+
+            }
+            else if(!eastSensor){
+                //m_RightWheelSpeed = m_RightWheelSpeed + 20;
+                transform.root.transform.Rotate(0,10,0);
+            }
+            else if(!southSensor){
+                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
+                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
+                transform.root.transform.Rotate(0,180,0);
+            }
+        }
+
+
+        if(eastSensor){
+            if(!northSensor){
+                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                //m_RightWheelSpeed = m_RightWheelSpeed;
+                transform.root.transform.Rotate(0,0,0);
+            }
+            else if(!westSensor){
+                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                transform.root.transform.Rotate(0,-10,0);
+            }
+            else if(!southSensor){
+                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
+                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
+                transform.root.transform.Rotate(0,180,0);
+            }
+	    
+        }
+        if(southSensor){
+            if(!eastSensor){
+                m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+            }
+            else if(!eastSensor){
+                m_RightWheelSpeed = m_RightWheelSpeed - 20;
+            }
+            else if(!northSensor){
+                m_LeftWheelSpeed = m_LeftWheelSpeed;
+                m_RightWheelSpeed = m_RightWheelSpeed;
+
+            }
+
+
+        }
     }
 
     void OnTriggerEnter(Collider other)

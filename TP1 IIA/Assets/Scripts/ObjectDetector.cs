@@ -12,7 +12,7 @@ public class ObjectDetector : MonoBehaviour
     void Start()
     {
         angle = 90;
-        distance = 5;
+        distance = 2;
         output = false;
     }
 
@@ -52,8 +52,9 @@ public class ObjectDetector : MonoBehaviour
                     Debug.Log(transform.position);
                     Debug.Log(cube.transform.position);
                     //Debug.Log(GameObject.FindGameObjectWithTag("Cube").transform.position);
-                    Debug.Log("Viu obstáculo");
+                    //Debug.Log("Viu obstáculo");
                     obstaclesOnSight.Add(cube);
+		    break;
                 }
             }
         }
