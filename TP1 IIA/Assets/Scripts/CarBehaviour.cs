@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CarBehaviour : MonoBehaviour {
-	
+
 	public float MaxSpeed;
 	public WheelCollider RR;
 	public WheelCollider RL;
@@ -31,6 +31,8 @@ public class CarBehaviour : MonoBehaviour {
 
 		//Apply to rigid body
 		m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation); 
+		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
+
 	}
+
 }

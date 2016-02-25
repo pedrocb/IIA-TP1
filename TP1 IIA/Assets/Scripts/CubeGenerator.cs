@@ -11,11 +11,11 @@ public class Cube : MonoBehaviour {
             cube.AddComponent<Rigidbody>();
             cube.transform.position = new Vector3(Random.Range(-25,25), 1, Random.Range(-25, 25));
         }
-        
+
 
 	}
-	
+
 	// Update is called once per frame
-	void Update () {    
+	void Update () {
     }
 }
