@@ -100,6 +100,30 @@ public class CarBehaviour2a : CarBehaviour {
 
 
         }
+
+        /*
+        if(transform.position.x == -22 && transform.position.z< 22 && transform.position.z>-22)
+        {
+            Debug.Log("PAREDE 1");
+            transform.root.transform.Rotate(0, 180, 0);
+        }
+        else if (transform.position.x == 22 && transform.position.z < 22 && transform.position.z > -22)
+        {
+            Debug.Log("PAREDE 2");
+            transform.root.transform.Rotate(0, 180, 0);
+        }
+        else if (transform.position.z == -22 && transform.position.x < 22 && transform.position.x > -22)
+        {
+            Debug.Log("PAREDE 3");
+            transform.root.transform.Rotate(0, 180, 0);
+        }
+        else if (transform.position.z == -22 && transform.position.x < 22 && transform.position.x > -22)
+        {
+            Debug.Log("PAREDE 4");
+            transform.root.transform.Rotate(0, 180, 0);
+        }
+        */
+
     }
 
     void OnTriggerEnter(Collider other)
