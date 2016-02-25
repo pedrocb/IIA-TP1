@@ -11,28 +11,28 @@ public class CarBehaviour2a : CarBehaviour {
 
 
     void Update()
-	{
-		//Read sensor values
-		float leftSensor = LeftLD.getLinearOutput ();
-		float rightSensor = RightLD.getLinearOutput ();
-
-		//Calculate target motor values
-		m_LeftWheelSpeed = leftSensor * MaxSpeed;
-		m_RightWheelSpeed = rightSensor * MaxSpeed;
-
+    {
+	//Read sensor values
+	float leftSensor = LeftLD.getLinearOutput ();
+	float rightSensor = RightLD.getLinearOutput ();
+	
+	//leftSensor = 0.2f;
+	//rightSensor = 0.2f;
+	//Calculate target motor values
+	m_LeftWheelSpeed = leftSensor * MaxSpeed;
+	m_RightWheelSpeed = rightSensor * MaxSpeed;
+	
+	
+	//Calculate target motor values
+	
+	m_LeftWheelSpeed = rightSensor * MaxSpeed;
+	m_RightWheelSpeed = leftSensor * MaxSpeed;
+	
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();
         bool eastSensor = eastOD.getOutput();
         bool westSensor = westOD.getOutput();
-
-        /*
-        Debug.Log("north: " + northSensor);
-        Debug.Log("south: " + southSensor);
-        Debug.Log("east: " + eastSensor);
-        Debug.Log("west: " + westSensor);
-        Debug.Log("-----------------------");
-        */
-
+	
         if(northSensor){
             if(!eastSensor){
                 //m_RightWheelSpeed = m_RightWheelSpeed +20;
@@ -48,7 +48,7 @@ public class CarBehaviour2a : CarBehaviour {
                 transform.root.transform.Rotate(0,180,0);
             }
         }
-
+	
         if(westSensor){
             if(!northSensor){
                 transform.root.transform.Rotate(0,0,0);
@@ -83,8 +83,7 @@ public class CarBehaviour2a : CarBehaviour {
                 //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
                 transform.root.transform.Rotate(0,180,0);
             }
-
-
+	    
         }
         if(southSensor){
             if(!eastSensor){

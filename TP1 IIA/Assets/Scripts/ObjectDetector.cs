@@ -17,7 +17,7 @@ public class ObjectDetector : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         GetSensorValue();
     }
@@ -48,15 +48,17 @@ public class ObjectDetector : MonoBehaviour
 
                 if (angleToTarget <= halfAngle)
                 {
-                    //Debug.Log(transform.position);
-                    //Debug.Log(cube.transform.position);
+		    Debug.DrawLine(transform.position,cube.transform.position,Color.red);
+                    Debug.Log(transform.position);
+                    Debug.Log(cube.transform.position);
                     //Debug.Log(GameObject.FindGameObjectWithTag("Cube").transform.position);
                     //Debug.Log("Viu obstáculo");
                     obstaclesOnSight.Add(cube);
+		    break;
                 }
             }
         }
-        foreach (GameObject wall in walls)
+	foreach (GameObject wall in walls)
         {
             if (Vector3.Distance(transform.position, wall.transform.position) <= distance)
             {
@@ -69,6 +71,7 @@ public class ObjectDetector : MonoBehaviour
 
                 if (angleToTarget <= halfAngle)
                 {
+		    Debug.DrawLine(transform.position,GetComponent<Light>().transform.position,Color.blue);
                     Debug.Log(transform.position);
                     Debug.Log(wall.transform.position);
                     Debug.Log("Viu parede");

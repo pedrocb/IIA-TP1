@@ -23,15 +23,15 @@ public class LightSpawner : MonoBehaviour {
 		Debug.Log("Finished start function");
 
 
-	}
+    }
 
 	void getLightsTimer() {
-		for(int i = 0; i < maxNumberLights; i++){
-			float aux = Random.Range(2.0F, 7.0F);
-			lightsTimer.Add(aux);
-		}
+	    for(int i = 0; i < maxNumberLights; i++){
+		float aux = Random.Range(2.0F, 7.0F);
+		lightsTimer.Add(aux);
+	    }
 	}
-
+	
 	// Update is called once per frame
 	/*void Update () {
 		for(int i = 0; i < maxNumberLights; i++){
