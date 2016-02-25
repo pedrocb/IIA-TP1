@@ -56,7 +56,7 @@ public class ObjectDetector : MonoBehaviour
                 }
             }
         }
-        /*foreach (GameObject wall in walls)
+        foreach (GameObject wall in walls)
         {
             if (Vector3.Distance(transform.position, wall.transform.position) <= distance)
             {
@@ -75,7 +75,7 @@ public class ObjectDetector : MonoBehaviour
                     obstaclesOnSight.Add(wall);
                 }
             }
-        }*/
+        }
 
         if(obstaclesOnSight.Count==0)
         {
