@@ -5,7 +5,7 @@ public class CubeSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int maxCubeObjects = 100;
+		int maxCubeObjects = 5;
 		int xRandom, zRandom;
 		for(int i = 0; i < maxCubeObjects; i++){
 				xRandom = Random.Range(-24,24);

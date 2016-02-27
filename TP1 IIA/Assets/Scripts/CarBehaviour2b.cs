@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CarBehaviour2a : CarBehaviour {
+public class CarBehaviour2b : CarBehaviour {
 
     public ObjectDetector northOD;
     public ObjectDetector southOD;
@@ -17,8 +17,8 @@ public class CarBehaviour2a : CarBehaviour {
 	float rightSensor = RightLD.getLinearOutput ();
 	
 	//Calculate target motor values
-	m_LeftWheelSpeed = leftSensor * MaxSpeed;
-	m_RightWheelSpeed = rightSensor * MaxSpeed;
+	m_LeftWheelSpeed = rightSensor * MaxSpeed;
+	m_RightWheelSpeed = leftSensor * MaxSpeed;
 	
 	
 	//Calculate target motor values

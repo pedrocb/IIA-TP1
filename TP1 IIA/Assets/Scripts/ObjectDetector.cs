@@ -71,7 +71,6 @@ public class ObjectDetector : MonoBehaviour
 
                 if (angleToTarget <= halfAngle)
                 {
-		    Debug.DrawLine(transform.position,GetComponent<Light>().transform.position,Color.blue);
                     Debug.Log(transform.position);
                     Debug.Log(wall.transform.position);
                     Debug.Log("Viu parede");
