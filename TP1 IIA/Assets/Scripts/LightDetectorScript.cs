@@ -17,11 +17,11 @@ public class LightDetectorScript : MonoBehaviour {
 
 
     void FixedUpdate () {
-	GameObject[] lights = GetVisibleLights ();
+	GameObject[] lights = GetVisibleLights (); //Todas as luzes dentro do angulo do sensor
 
 	output = 0;
 	numObjects = lights.Length;
-
+	
 	foreach (GameObject light in lights) {
 	    Debug.DrawLine(transform.position,light.transform.position,Color.green);
 	    float r = light.GetComponent<Light> ().range;

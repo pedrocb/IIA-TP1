@@ -17,29 +17,26 @@ public class CarBehaviour3a : CarBehaviour {
 	float rightSensor = RightLD.getLinearOutput ();
 
 	//Calculate target motor values
+	//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
 	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
 
 
-	//Calculate target motor values
-
+	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();
         bool eastSensor = eastOD.getOutput();
         bool westSensor = westOD.getOutput();
 
+	//Conforme os outputs rodar o carro
         if(northSensor){
             if(!eastSensor){
-                //m_RightWheelSpeed = m_RightWheelSpeed +20;
                 transform.root.transform.Rotate(0,10,0);
             }
             else if(!westSensor){
-                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
                 transform.root.transform.Rotate(0,-10,0);
             }
             else if(!southSensor){
-                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
-                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
                 transform.root.transform.Rotate(0,180,0);
             }
         }
@@ -47,17 +44,12 @@ public class CarBehaviour3a : CarBehaviour {
         if(westSensor){
             if(!northSensor){
                 transform.root.transform.Rotate(0,0,0);
-                //m_LeftWheelSpeed = m_LeftWheelSpeed;
-                //m_RightWheelSpeed = m_RightWheelSpeed;
 
             }
             else if(!eastSensor){
-                //m_RightWheelSpeed = m_RightWheelSpeed + 20;
                 transform.root.transform.Rotate(0,10,0);
             }
             else if(!southSensor){
-                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
-                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
                 transform.root.transform.Rotate(0,180,0);
             }
         }
@@ -65,17 +57,12 @@ public class CarBehaviour3a : CarBehaviour {
 
         if(eastSensor){
             if(!northSensor){
-                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
-                //m_RightWheelSpeed = m_RightWheelSpeed;
                 transform.root.transform.Rotate(0,0,0);
             }
             else if(!westSensor){
-                //m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
                 transform.root.transform.Rotate(0,-10,0);
             }
             else if(!southSensor){
-                //m_RightWheelSpeed = m_RightWheelSpeed - 20;
-                //m_LeftWheelSpeed = m_LeftWheelSpeed - 20;
                 transform.root.transform.Rotate(0,180,0);
             }
 
@@ -95,29 +82,6 @@ public class CarBehaviour3a : CarBehaviour {
 
 
         }
-
-        /*
-        if(transform.position.x == -22 && transform.position.z< 22 && transform.position.z>-22)
-        {
-            Debug.Log("PAREDE 1");
-            transform.root.transform.Rotate(0, 180, 0);
-        }
-        else if (transform.position.x == 22 && transform.position.z < 22 && transform.position.z > -22)
-        {
-            Debug.Log("PAREDE 2");
-            transform.root.transform.Rotate(0, 180, 0);
-        }
-        else if (transform.position.z == -22 && transform.position.x < 22 && transform.position.x > -22)
-        {
-            Debug.Log("PAREDE 3");
-            transform.root.transform.Rotate(0, 180, 0);
-        }
-        else if (transform.position.z == -22 && transform.position.x < 22 && transform.position.x > -22)
-        {
-            Debug.Log("PAREDE 4");
-            transform.root.transform.Rotate(0, 180, 0);
-        }
-        */
 
     }
 
