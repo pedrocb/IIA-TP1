@@ -18,7 +18,7 @@ public class LightDetectorScript : MonoBehaviour {
 
     void FixedUpdate () {
 	GameObject[] lights = GetVisibleLights ();
-	
+
 	output = 0;
 	numObjects = lights.Length;
 
@@ -27,16 +27,16 @@ public class LightDetectorScript : MonoBehaviour {
 	    float r = light.GetComponent<Light> ().range;
 	    output += 1f / Mathf.Pow((transform.position - light.transform.position).magnitude / r + 1, 2);
 	}
-	
+
 	if(numObjects>0){
-	    
+
 	    output = output/numObjects;
 	}
     }
-    
+
     // Get Sensor output value
     public float getLinearOutput(){
-	
+
 	return output;
     }
 
@@ -61,7 +61,7 @@ public class LightDetectorScript : MonoBehaviour {
 		toVector.y = 0;
 		forward.y = 0;
 		float angleToTarget = Vector3.Angle (forward, toVector);
-			
+
 		if (angleToTarget <= halfAngle) {
 		    visibleLights.Add (light);
 		}
