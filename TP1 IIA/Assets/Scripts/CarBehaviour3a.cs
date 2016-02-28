@@ -17,8 +17,8 @@ public class CarBehaviour3a : CarBehaviour {
 	float rightSensor = RightLD.getLinearOutput ();
 
 	//Calculate target motor values
-	m_LeftWheelSpeed = leftSensor * MaxSpeed;
-	m_RightWheelSpeed = rightSensor * MaxSpeed;
+	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
+	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
 
 
 	//Calculate target motor values
