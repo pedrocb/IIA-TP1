@@ -36,7 +36,7 @@ public class CarBehaviour3a : CarBehaviour {
 			m_RightWheelSpeed = m_RightWheelSpeed + 5;
 			m_LeftWheelSpeed = m_LeftWheelSpeed - 5;
 
-		} 
+		}
 		else {
 			m_LeftWheelSpeed = m_LeftWheelSpeed + 5;
 			m_RightWheelSpeed = m_RightWheelSpeed +5;
