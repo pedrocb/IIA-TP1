@@ -19,8 +19,9 @@ public class CarBehaviour3b : CarBehaviour {
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	//Sensor da direita influencia roda da esquerda e vice-versa
-	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
-	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
+	Debug.Log(leftSensor);
+	m_LeftWheelSpeed = (leftSensor) * MaxSpeed;
+	m_RightWheelSpeed = (rightSensor) * MaxSpeed;
 
 
 	//Calcular os outputs dos sensores
@@ -70,20 +71,13 @@ public class CarBehaviour3b : CarBehaviour {
         }
         if(southSensor){
             if(!eastSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                transform.root.transform.Rotate(0,10,0);
+	    }
+            else if(!westSensor){
+                transform.root.transform.Rotate(0,-10,0);
             }
-            else if(!eastSensor){
-                m_RightWheelSpeed = m_RightWheelSpeed - 20;
-            }
-            else if(!northSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed;
-                m_RightWheelSpeed = m_RightWheelSpeed;
-
-            }
-
 
         }
-
     }
 
     void OnTriggerEnter(Collider other)

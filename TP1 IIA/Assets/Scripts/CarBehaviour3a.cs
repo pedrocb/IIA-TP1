@@ -21,7 +21,6 @@ public class CarBehaviour3a : CarBehaviour {
 	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
 	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
 
-
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();
@@ -69,17 +68,11 @@ public class CarBehaviour3a : CarBehaviour {
         }
         if(southSensor){
             if(!eastSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                transform.root.transform.Rotate(0,10,0);
+	    }
+            else if(!westSensor){
+                transform.root.transform.Rotate(0,-10,0);
             }
-            else if(!eastSensor){
-                m_RightWheelSpeed = m_RightWheelSpeed - 20;
-            }
-            else if(!northSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed;
-                m_RightWheelSpeed = m_RightWheelSpeed;
-
-            }
-
 
         }
 

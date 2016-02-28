@@ -67,22 +67,16 @@ public class CarBehaviour2b : CarBehaviour {
             }
 
         }
+
         if(southSensor){
             if(!eastSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed + 20;
+                transform.root.transform.Rotate(0,10,0);
+	    }
+            else if(!westSensor){
+                transform.root.transform.Rotate(0,-10,0);
             }
-            else if(!eastSensor){
-                m_RightWheelSpeed = m_RightWheelSpeed - 20;
-            }
-            else if(!northSensor){
-                m_LeftWheelSpeed = m_LeftWheelSpeed;
-                m_RightWheelSpeed = m_RightWheelSpeed;
-
-            }
-
 
         }
-
     }
 
     void OnTriggerEnter(Collider other)
