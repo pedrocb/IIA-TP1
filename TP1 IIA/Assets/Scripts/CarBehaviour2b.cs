@@ -15,13 +15,13 @@ public class CarBehaviour2b : CarBehaviour {
 	//Read sensor values
 	float leftSensor = LeftLD.getLinearOutput ();
 	float rightSensor = RightLD.getLinearOutput ();
-	
+
 	//Calculate target motor values
 	//Sensor da direita influencia roda da esquerda e vice-versa
 	m_LeftWheelSpeed = rightSensor * MaxSpeed;
 	m_RightWheelSpeed = leftSensor * MaxSpeed;
-	
-	
+
+
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();
@@ -84,6 +84,11 @@ public class CarBehaviour2b : CarBehaviour {
         if (other.gameObject.CompareTag("Cube"))
         {
 
+        }
+        if(other.gameObject.CompareTag("Walls"))
+        {
+            //other.gameObjet.SetActive(false);
+            transform.root.transform.Rotate(0,180,0);
         }
     }
 

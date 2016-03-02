@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class LightSpawner : MonoBehaviour {
-	int maxNumberLights = 20;
+	int maxNumberLights = 10;
 	private int remainingLights = 30;
 	float timeLeft = 6.0f;
 	private List<float> lightsTimer = new List<float>();

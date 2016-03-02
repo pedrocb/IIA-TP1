@@ -84,6 +84,11 @@ public class CarBehaviour3a : CarBehaviour {
         {
 
         }
+        if(other.gameObject.CompareTag("Walls"))
+        {
+            //other.gameObjet.SetActive(false);
+            transform.root.transform.Rotate(0,180,0);
+        }
     }
 
 }
