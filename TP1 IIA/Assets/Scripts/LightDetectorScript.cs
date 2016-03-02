@@ -17,28 +17,27 @@ public class LightDetectorScript : MonoBehaviour {
 
 
     void FixedUpdate () {
-	GameObject[] lights = GetVisibleLights (); //Todas as luzes dentro do angulo do sensor
+		GameObject[] lights = GetVisibleLights (); //Todas as luzes dentro do angulo do sensor
 
-	output = 0;
-	numObjects = lights.Length;
+		output = 0;
+		numObjects = lights.Length;
 
-	foreach (GameObject light in lights) {
-	    Debug.DrawLine(transform.position,light.transform.position,Color.green);
-	    float r = light.GetComponent<Light> ().range;
-	    output += 1f / Mathf.Pow((transform.position - light.transform.position).magnitude / r + 1, 2);
-	}
-	//Debug.DrawLine(transform.position, transform.forward, Color.blue);
+		foreach (GameObject light in lights) {
+		    Debug.DrawLine(transform.position,light.transform.position,Color.green);
+		    float r = light.GetComponent<Light> ().range;
+		    output += 1f / Mathf.Pow((transform.position - light.transform.position).magnitude / r + 1, 2);
+		}
+		//Debug.DrawLine(transform.position, transform.forward, Color.blue);
 
-	if(numObjects>0){
+		if(numObjects>0){
 
-	    output = output/numObjects;
-	}
+			    output = output/numObjects;
+		}
     }
 
     // Get Sensor output value
     public float getLinearOutput(){
-
-	return output;
+		return output;
     }
 
     // Returns all "Light" tagged objects. The sensor angle is not taken into account.
