@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CarBehaviour3a : CarBehaviour {
+public class CarBehaviour3b : CarBehaviour {
 
     public ObjectDetector northOD;
     public ObjectDetector southOD;
@@ -18,8 +18,11 @@ public class CarBehaviour3a : CarBehaviour {
 
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
-	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
-	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
+	//Sensor da direita influencia roda da esquerda e vice-versa
+	Debug.Log(leftSensor);
+	m_LeftWheelSpeed = (1/leftSensor) * MaxSpeed;
+	m_RightWheelSpeed = (1/rightSensor) * MaxSpeed;
+
 
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
@@ -75,7 +78,6 @@ public class CarBehaviour3a : CarBehaviour {
             }
 
         }
-
     }
 
     void OnTriggerEnter(Collider other)

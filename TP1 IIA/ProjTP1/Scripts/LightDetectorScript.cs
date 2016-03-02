@@ -21,13 +21,12 @@ public class LightDetectorScript : MonoBehaviour {
 
 	output = 0;
 	numObjects = lights.Length;
-
+	
 	foreach (GameObject light in lights) {
 	    Debug.DrawLine(transform.position,light.transform.position,Color.green);
 	    float r = light.GetComponent<Light> ().range;
 	    output += 1f / Mathf.Pow((transform.position - light.transform.position).magnitude / r + 1, 2);
 	}
-	//Debug.DrawLine(transform.position, transform.forward, Color.blue);
 
 	if(numObjects>0){
 
@@ -62,7 +61,7 @@ public class LightDetectorScript : MonoBehaviour {
 		toVector.y = 0;
 		forward.y = 0;
 		float angleToTarget = Vector3.Angle (forward, toVector);
-		//Debug.DrawLine(transform.position, (light.transform.position - transform.position), Color.blue);
+
 		if (angleToTarget <= halfAngle) {
 		    visibleLights.Add (light);
 		}
