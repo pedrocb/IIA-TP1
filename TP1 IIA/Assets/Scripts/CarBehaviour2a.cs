@@ -20,7 +20,7 @@ public class CarBehaviour2a : CarBehaviour {
 	m_LeftWheelSpeed = leftSensor * MaxSpeed;
 	m_RightWheelSpeed = rightSensor * MaxSpeed;
 
-	
+
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();
@@ -82,7 +82,12 @@ public class CarBehaviour2a : CarBehaviour {
     {
         if (other.gameObject.CompareTag("Cube"))
         {
-
+            //other.gameObjet.SetActive(false);
+        }
+        if(other.gameObject.CompareTag("Walls"))
+        {
+            //other.gameObjet.SetActive(false);
+            transform.root.transform.Rotate(0,180,0);
         }
     }
 
