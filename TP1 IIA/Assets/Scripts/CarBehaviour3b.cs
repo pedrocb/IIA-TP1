@@ -19,7 +19,7 @@ public class CarBehaviour3b : CarBehaviour {
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	//Sensor da direita influencia roda da esquerda e vice-versa
-	Debug.Log(leftSensor);
+	Debug.Log(leftSensor + " " + rightSensor);
 	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
 	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
 

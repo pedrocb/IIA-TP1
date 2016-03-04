@@ -49,10 +49,6 @@ public class ObjectDetector : MonoBehaviour
                 if (angleToTarget <= halfAngle)
                 {
 		    Debug.DrawLine(transform.position,cube.transform.position,Color.red);
-                    Debug.Log(transform.position);
-                    Debug.Log(cube.transform.position);
-                    //Debug.Log(GameObject.FindGameObjectWithTag("Cube").transform.position);
-                    //Debug.Log("Viu obstáculo");
                     obstaclesOnSight.Add(cube);
 		    break;
                 }
@@ -71,9 +67,6 @@ public class ObjectDetector : MonoBehaviour
 
                 if (angleToTarget <= halfAngle)
                 {
-                    Debug.Log(transform.position);
-                    Debug.Log(wall.transform.position);
-                    Debug.Log("Viu parede");
                     obstaclesOnSight.Add(wall);
                 }
             }
