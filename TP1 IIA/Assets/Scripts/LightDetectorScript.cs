@@ -39,30 +39,35 @@ public class LightDetectorScript : MonoBehaviour {
 	if(numObjects>0){
 	    output = output/numObjects;
 	}
-	if(output < limiarInf){
-	    output = limInf;
-	}
-	else if(output > limiarSup){
-	    output = limInf;
-	}
-	else{
-	    if(isGaussian){
-		output = (1F/Mathf.Sqrt(2F*Mathf.PI*stdev))*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F)));
-	    }
-	}
-	output*=bias;
-	if(output>limSup){
-	    output = limSup;
-	}
-	else if(output < limInf){
-	    output = limInf;
-	}
     }
     
     // Get Sensor output value
     public float getLinearOutput(){
+	float result;
+	if(output < limiarInf){
+	    result = limInf;
+	}
+	else if(output > limiarSup){
+	    result = limInf;
+	}
+	else{
+	    if(isGaussian){ 
+		result = (1F/Mathf.Sqrt(2F*Mathf.PI*stdev))*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F)));
+	    }
+	    else{
+		result = output;
+	    }
+	    result*=bias;
+	    if(result> limSup){
+		result = limSup;
+	    }
+	    else if(result<limInf){
+		result = limInf;
+	    }
+	}
 	return output;
     }
+    
     
     // Returns all "Light" tagged objects. The sensor angle is not taken into account.
     GameObject[] GetAllLights()
