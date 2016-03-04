@@ -65,7 +65,7 @@ public class LightDetectorScript : MonoBehaviour {
 		result = limInf;
 	    }
 	}
-	return output;
+	return result;
     }
     
     
