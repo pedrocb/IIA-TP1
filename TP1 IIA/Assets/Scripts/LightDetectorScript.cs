@@ -53,6 +53,7 @@ public class LightDetectorScript : MonoBehaviour {
 	else{
 	    if(isGaussian){ 
 		result = (1F/Mathf.Sqrt(2F*Mathf.PI*stdev))*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F)));
+		Debug.Log(result);
 	    }
 	    else{
 		result = output;
