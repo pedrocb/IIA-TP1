@@ -6,7 +6,7 @@ using System;
 public class LightDetectorScript : MonoBehaviour {
 
     public float angle;
-
+	
     public float output;
     public int numObjects;
     public bool isGaussian;
@@ -19,8 +19,8 @@ public class LightDetectorScript : MonoBehaviour {
     public float bias;
     
     void Start () {
-	output = 0;
-	numObjects = 0;
+		output = 0;
+		numObjects = 0;
     }
 
 

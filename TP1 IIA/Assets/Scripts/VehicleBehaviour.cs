@@ -13,9 +13,11 @@ public class VehicleBehaviour : CarBehaviour {
 		float leftSensor = LeftLD.getLinearOutput ();
 		float rightSensor = RightLD.getLinearOutput ();
 
-		//Calculate target motor values
-		//A velocidade das rodas é inversamente proporcional ao output dos sensores
 		m_LeftWheelSpeed = leftSensor * MaxSpeed;
 		m_RightWheelSpeed = rightSensor * MaxSpeed;
+
+
+		//Calculate target motor values
+		//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	}
 }
