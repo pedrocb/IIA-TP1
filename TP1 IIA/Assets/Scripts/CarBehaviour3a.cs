@@ -89,6 +89,7 @@ public class CarBehaviour3a : CarBehaviour {
             //other.gameObjet.SetActive(false);
             transform.root.transform.Rotate(0,180,0);
         }
+        
     }
 
 }
