@@ -22,17 +22,16 @@ public class CarBehaviour : MonoBehaviour {
 
 	void FixedUpdate () {
 		//Calculate forward movement
-		float targetSpeed = Mathf.Min(m_LeftWheelSpeed, m_RightWheelSpeed);
-		Vector3 movement = transform.forward * targetSpeed * Time.deltaTime;
-
+	    float targetSpeed = Mathf.Min(m_LeftWheelSpeed, m_RightWheelSpeed);
+	    Vector3 movement = transform.forward * targetSpeed * Time.deltaTime;
+		
 		//Calculate turn degrees based on wheel speed
-		float angVelocity = (m_LeftWheelSpeed - m_RightWheelSpeed) / m_axleLength * Mathf.Rad2Deg * Time.deltaTime;
-		Quaternion turnRotation = Quaternion.Euler (0f, angVelocity, 0f);
-
-		//Apply to rigid body
-		m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
-
+	    float angVelocity = (m_LeftWheelSpeed - m_RightWheelSpeed) / m_axleLength * Mathf.Rad2Deg * Time.deltaTime;
+	    Quaternion turnRotation = Quaternion.Euler (0f, angVelocity, 0f);
+	    
+	    //Apply to rigid body
+	    m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+	    m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);	    
 	}
-
+    
 }

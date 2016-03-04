@@ -15,8 +15,7 @@ public class CarBehaviour2a : CarBehaviour {
 	//Read sensor values
 	float leftSensor = LeftLD.getLinearOutput ();
 	float rightSensor = RightLD.getLinearOutput ();
-
-	Debug.Log(leftSensor+" "+rightSensor);
+	Debug.Log(leftSensor + " " + rightSensor);
 	//Calculate target motor values
 	m_LeftWheelSpeed = leftSensor * MaxSpeed;
 	m_RightWheelSpeed = rightSensor * MaxSpeed;
