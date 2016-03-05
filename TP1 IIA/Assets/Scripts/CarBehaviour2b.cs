@@ -21,8 +21,8 @@ public class CarBehaviour2b : CarBehaviour {
 	//Sensor da direita influencia roda da esquerda e vice-versa
 	m_LeftWheelSpeed = rightSensor * MaxSpeed;
 	m_RightWheelSpeed = leftSensor * MaxSpeed;
-
-
+	
+	
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
         bool southSensor = southOD.getOutput();

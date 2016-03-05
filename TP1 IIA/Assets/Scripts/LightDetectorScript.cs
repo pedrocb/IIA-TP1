@@ -19,8 +19,8 @@ public class LightDetectorScript : MonoBehaviour {
     public float bias;
     
     void Start () {
-		output = 0;
-		numObjects = 0;
+	output = 0;
+	numObjects = 0;
     }
 
 
@@ -43,6 +43,7 @@ public class LightDetectorScript : MonoBehaviour {
     
     // Get Sensor output value
     public float getLinearOutput(){
+	Debug.Log(this.gameObject.name + " " + output);
 	float result;
 	if(output < limiarInf){
 	    result = limInf;
@@ -52,8 +53,7 @@ public class LightDetectorScript : MonoBehaviour {
 	}
 	else{
 	    if(isGaussian){ 
-				result = (1F/(Mathf.Sqrt(2F*Mathf.PI)*stdev)*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F))));
-		Debug.Log(result);
+		result = (1F/(Mathf.Sqrt(2F*Mathf.PI)*stdev)*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F))));
 	    }
 	    else{
 		result = output;
@@ -75,30 +75,29 @@ public class LightDetectorScript : MonoBehaviour {
     {
 	return GameObject.FindGameObjectsWithTag ("Light");
     }
+    
+    // Returns all "Light" tagged objects that are within the view angle of the Sensor. Only considers the angle over
+    // the y axis. Does not consider objects blocking the view.
+    GameObject[] GetVisibleLights()
+    {
+	ArrayList visibleLights = new ArrayList();
+	float halfAngle = angle / 2.0f;
 
-	// Returns all "Light" tagged objects that are within the view angle of the Sensor. Only considers the angle over
-	// the y axis. Does not consider objects blocking the view.
-	GameObject[] GetVisibleLights()
-	{
-	    ArrayList visibleLights = new ArrayList();
-	    float halfAngle = angle / 2.0f;
+	GameObject[] lights = GameObject.FindGameObjectsWithTag ("Light");
 
-	    GameObject[] lights = GameObject.FindGameObjectsWithTag ("Light");
-
-	    foreach (GameObject light in lights) {
-		Vector3 toVector = (light.transform.position - transform.position);
-		Vector3 forward = transform.forward;
-		toVector.y = 0;
-		forward.y = 0;
-		float angleToTarget = Vector3.Angle (forward, toVector);
-		//Debug.DrawLine(transform.position, (light.transform.position - transform.position), Color.blue);
-		if (angleToTarget <= halfAngle) {
-		    visibleLights.Add (light);
-		}
+	foreach (GameObject light in lights) {
+	    Vector3 toVector = (light.transform.position - transform.position);
+	    Vector3 forward = transform.forward;
+	    toVector.y = 0;
+	    forward.y = 0;
+	    float angleToTarget = Vector3.Angle (forward, toVector);
+	    if (angleToTarget <= halfAngle) {
+		visibleLights.Add (light);
 	    }
-
-	    return (GameObject[])visibleLights.ToArray(typeof(GameObject));
 	}
+
+	return (GameObject[])visibleLights.ToArray(typeof(GameObject));
+    }
 
 
 }
