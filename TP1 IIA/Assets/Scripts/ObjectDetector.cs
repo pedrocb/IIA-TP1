@@ -59,7 +59,6 @@ public class ObjectDetector : MonoBehaviour
 	    Debug.DrawLine(transform.position,closer.transform.position,Color.red);
 	    output = (minDistance/25);
 	}
-	Debug.Log(output);
     }
 
 }
