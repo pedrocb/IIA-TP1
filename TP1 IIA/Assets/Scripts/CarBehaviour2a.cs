@@ -19,7 +19,6 @@ public class CarBehaviour2a : CarBehaviour {
 	
 	float westObjectSensor = westOD.getOutput();
 	float eastObjectSensor = eastOD.getOutput();
-	Debug.Log(westObjectSensor + " " +eastObjectSensor);
 	
 	m_LeftWheelSpeed+= (1/westObjectSensor) * MaxSpeed;
 	m_RightWheelSpeed+= (1/eastObjectSensor) * MaxSpeed;

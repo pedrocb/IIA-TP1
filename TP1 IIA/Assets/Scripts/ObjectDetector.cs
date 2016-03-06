@@ -53,13 +53,13 @@ public class ObjectDetector : MonoBehaviour
             }
         }
 	if(minDistance == -1){
-	    output =  1F;
+	    output = 1f;
 	}
 	else{
 	    Debug.DrawLine(transform.position,closer.transform.position,Color.red);
-	    output = minDistance/25;
+	    output = (minDistance/25);
 	}
-	
+	Debug.Log(output);
     }
 
 }
