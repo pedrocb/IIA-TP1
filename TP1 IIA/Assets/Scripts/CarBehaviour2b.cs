@@ -14,12 +14,17 @@ public class CarBehaviour2b : CarBehaviour {
 	float leftSensor = LeftLD.getLinearOutput ();
 	float rightSensor = RightLD.getLinearOutput ();
 
-	Debug.Log(leftSensor +" " + rightSensor);
 	//Calculate target motor values
 	//Sensor da direita influencia roda da esquerda e vice-versa
 	m_LeftWheelSpeed = rightSensor * MaxSpeed;
 	m_RightWheelSpeed = leftSensor * MaxSpeed;
+
+	float westObjectSensor = westOD.getOutput();
+	float eastObjectSensor = eastOD.getOutput();
 	
+	m_LeftWheelSpeed+= (1/westObjectSensor) * MaxSpeed;
+	m_RightWheelSpeed+= (1/eastObjectSensor) * MaxSpeed;
+
 	
     }
 

@@ -17,11 +17,18 @@ public class CarBehaviour3b : CarBehaviour {
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	//Sensor da direita influencia roda da esquerda e vice-versa
-	m_LeftWheelSpeed = (1-rightSensor) * MaxSpeed;
-	m_RightWheelSpeed = (1-leftSensor) * MaxSpeed;
+	m_LeftWheelSpeed = (1/rightSensor) * MaxSpeed;
+	m_RightWheelSpeed = (1/leftSensor) * MaxSpeed;
+
+	float westObjectSensor = westOD.getOutput();
+	float eastObjectSensor = eastOD.getOutput();
+
+	
+	m_LeftWheelSpeed+= (1/westObjectSensor) * MaxSpeed;
+	m_RightWheelSpeed+= (1/eastObjectSensor) * MaxSpeed;
 
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Cube"))
