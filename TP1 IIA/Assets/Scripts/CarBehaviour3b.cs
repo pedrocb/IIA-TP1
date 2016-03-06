@@ -19,8 +19,8 @@ public class CarBehaviour3b : CarBehaviour {
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
 	//Sensor da direita influencia roda da esquerda e vice-versa
-	m_LeftWheelSpeed = (1/leftSensor) * MaxSpeed;
-	m_RightWheelSpeed = (1/rightSensor) * MaxSpeed;
+		m_LeftWheelSpeed = (1/rightSensor) * MaxSpeed;
+		m_RightWheelSpeed = (1/leftSensor) * MaxSpeed;
 
 
 	//Calcular os outputs dos sensores

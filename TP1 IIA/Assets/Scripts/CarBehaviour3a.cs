@@ -18,8 +18,8 @@ public class CarBehaviour3a : CarBehaviour {
 
 	//Calculate target motor values
 	//A velocidade das rodas é inversamente proporcional ao output dos sensores
-	m_LeftWheelSpeed = (1-leftSensor) * MaxSpeed;
-	m_RightWheelSpeed = (1-rightSensor) * MaxSpeed;
+		m_LeftWheelSpeed = (1/leftSensor) * MaxSpeed;
+		m_RightWheelSpeed = (1/rightSensor) * MaxSpeed;
 
 	//Calcular os outputs dos sensores
         bool northSensor = northOD.getOutput();
