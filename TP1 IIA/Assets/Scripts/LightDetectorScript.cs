@@ -56,14 +56,14 @@ public class LightDetectorScript : MonoBehaviour {
 		result = (1F/(Mathf.Sqrt(2F*Mathf.PI)*stdev)*Mathf.Exp((float)-Math.Pow((output - mean),2F)/(float)(2F*Math.Pow(stdev,2F))));
 	    }
 	    else{
-		result = output;
+			result = output;
 	    }
-	    result*=bias;
+	    	result*=bias;
 	    if(result> limSup){
-		result = limSup;
+			result = limSup;
 	    }
 	    else if(result<limInf){
-		result = limInf;
+			result = limInf;
 	    }
 	}
 	return result;
